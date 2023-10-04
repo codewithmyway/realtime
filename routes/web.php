@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,6 @@ Route::get('/user2',function(){
 Route::get('/ws', function (){
     return view('websocket');
 });
+
+Route::get('/chat',[ChatController::class,'chatIndex']);
+Route::post('/broad-cast',[ChatController::class,'broadCastMessage'])->name('broadCastMessage');
